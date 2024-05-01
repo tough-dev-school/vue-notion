@@ -24,7 +24,7 @@
       },
       aspectRatioStyle() {
         let aspectRatio =
-          this.f.block_width == 1 || this.f.block_height == 1
+          this.f.block_width == 1 || this.f.block_height == 1 || this.f.block_aspect_ratio
             ? 1 / this.f.block_aspect_ratio
             : `${this.f.block_width} / ${this.f.block_height} `;
 
