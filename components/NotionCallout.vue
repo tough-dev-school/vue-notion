@@ -10,14 +10,15 @@
         <NotionTextRenderer :text="title" v-bind="pass" />
       </div>
 
-      <NotionRenderer
-        v-for="(contentId, contentIndex) in block.value.content"
-        v-if="block.value.content"
-        v-bind="pass"
-        :key="contentId"
-        :level="pass.level + 1"
-        :content-id="contentId"
-        :content-index="contentIndex" />
+      <template v-if="block.value.content">
+        <NotionRenderer
+          v-for="(contentId, contentIndex) in block.value.content"
+          v-bind="pass"
+          :key="contentId"
+          :level="pass.level + 1"
+          :content-id="contentId"
+          :content-index="contentIndex" />
+      </template>
       <NotionTextRenderer v-else :text="title" v-bind="pass" />
     </div>
   </div>
