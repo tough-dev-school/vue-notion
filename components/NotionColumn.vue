@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  const baseWidth = 46; // todo: add magic numbers to a config json
+  const baseWidth = 20; // todo: add magic numbers to a config json
 
   export default {
     props: ['format'],
