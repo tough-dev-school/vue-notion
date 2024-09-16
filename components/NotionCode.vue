@@ -3,7 +3,8 @@
     :class="[
       'notion-code',
       langClass,
-    ]"><code :class="langClass">{{ properties.title[0][0] }}</code></pre>
+    ]"><code :class="langClass"><template v-for="(segment, segmentIndex) in properties.title" :key="segmentIndex">{{ segment[0] }}</template></code>
+</pre>
 </template>
 
 <script>
@@ -12,7 +13,6 @@
   export default {
     extends: Blockable,
     props: { ...blockProps, overrideLang: String, overrideLangClass: String },
-
     computed: {
       ...blockComputed,
       lang() {
