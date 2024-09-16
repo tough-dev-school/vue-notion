@@ -4,14 +4,21 @@
       <NotionPageIcon v-bind="pass" />
     </div>
     <div class="notion-callout-text">
-      <NotionRenderer
-        v-if="block.value.content"
-        v-for="(contentId, contentIndex) in block.value.content"
-        v-bind="pass"
-        :key="contentId"
-        :level="pass.level + 1"
-        :content-id="contentId"
-        :content-index="contentIndex" />
+      <div
+        v-if="block.value.content && block.value.properties?.title"
+        class="notion-callout-title">
+        <NotionTextRenderer :text="title" v-bind="pass" />
+      </div>
+
+      <template v-if="block.value.content">
+        <NotionRenderer
+          v-for="(contentId, contentIndex) in block.value.content"
+          v-bind="pass"
+          :key="contentId"
+          :level="pass.level + 1"
+          :content-id="contentId"
+          :content-index="contentIndex" />
+      </template>
       <NotionTextRenderer v-else :text="title" v-bind="pass" />
     </div>
   </div>
