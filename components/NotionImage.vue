@@ -15,12 +15,14 @@
       hasImageComponent() {
         return !!this.imageOptions?.component;
       },
+      width() {
+        return this.f.block_width == 1 || this.f.block_page_width
+          ? '100%'
+          : `${this.f.block_width}px`;
+      },
       basicStyle() {
         return {
-          width:
-            this.f.block_width == 1 || this.f.block_page_width
-              ? '100%'
-              : `${this.f.block_width}px`,
+          width: this.width,
           height:
             this.f.block_height == 1 ? '100%' : `${this.f.block_height}px`,
         };
@@ -34,7 +36,7 @@
             : `${this.f.block_width} / ${this.f.block_height} `;
 
         return {
-          width: `${this.f.block_width}px`,
+          width: this.width,
           height: `100%`,
           maxWidth: '100%',
           position: 'relative',
